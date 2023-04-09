@@ -17,9 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from ads.views import StatusView
+from ads.views import StatusView, CategoryView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', StatusView.as_view())
+    path('', StatusView.as_view()),
+    path('cat/', CategoryView.as_view()),
+    path('ad/', CategoryView.as_view()),
 ]
