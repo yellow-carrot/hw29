@@ -1,3 +1,5 @@
+import json
+
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.utils.decorators import method_decorator
@@ -29,6 +31,11 @@ class CategoryView(View):
 
         return JsonResponse(response, safe=False, json_dumps_params={'ensure_ascii': False}, status=200)
 
+    def post(self, request):
+        data = json.loads(request.body)
+        new_category = Category.objects.create(name=data.get("name"))
+        return JsonResponse({"id": new_category.id, "name": new_category.name})
+
 
 @method_decorator(csrf_exempt, name='dispatch')
 class AdView(View):
@@ -46,6 +53,20 @@ class AdView(View):
             })
 
         return JsonResponse(response, safe=False, json_dumps_params={'ensure_ascii': False}, status=200)
+
+    def post(self, request):
+        data = json.loads(request.body)
+        new_ad = Ad.objects.create(**data)
+
+        return JsonResponse({
+            "id": new_ad.id,
+            "name": new_ad.name,
+            "author": new_ad.author,
+            "price": new_ad.price,
+            "description": new_ad.description,
+            "address": new_ad.address,
+            "is_published": new_ad.is_published
+        })
 
 
 @method_decorator(csrf_exempt, name='dispatch')
