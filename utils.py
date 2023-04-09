@@ -13,10 +13,10 @@ def csv_to_json(csv_path, json_path, model):
                 row["price"] = int(row["price"])
 
             if "is_published" in row:
-                if "is_published" == "TRUE":
-                    row['is_published'] = True
+                if row["is_published"] == "TRUE":
+                    row["is_published"] = True
                 else:
-                    row['is_published'] = False
+                    row["is_published"] = False
 
             json_array.append({"model": model, "fields": row})
 
