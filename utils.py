@@ -25,5 +25,5 @@ def csv_to_json(csv_path, json_path, model):
         json_file.write(json_string)
 
 
-csv_to_json('datasets/ads.csv', 'datasets/ads.json', 'ads.ad')
-csv_to_json('datasets/categories.csv', 'datasets/categories.json', 'ads.category')
+csv_to_json('data/ads.csv', 'data/ads.json', 'ads.ad')
+csv_to_json('data/categories.csv', 'data/categories.json', 'ads.category')
