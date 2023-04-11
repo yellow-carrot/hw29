@@ -18,6 +18,9 @@ def csv_to_json(csv_path, json_path, model):
                 else:
                     row["is_published"] = False
 
+            if "location_id" in row:
+                row["location_id"] = [int(row["location_id"])]
+
             json_array.append({"model": model, "fields": row})
 
     with open(json_path, 'w', encoding='utf-8') as json_file:
@@ -25,5 +28,7 @@ def csv_to_json(csv_path, json_path, model):
         json_file.write(json_string)
 
 
-csv_to_json('data/ads.csv', 'data/ads.json', 'ads.ad')
-csv_to_json('data/categories.csv', 'data/categories.json', 'ads.category')
+csv_to_json('data/ad.csv', 'data/ad.json', 'ads.ad')
+csv_to_json('data/category.csv', 'data/category.json', 'ads.category')
+csv_to_json('data/location.csv', 'data/location.json', 'users.location')
+csv_to_json('data/user.csv', 'data/user.json', 'users.user')
