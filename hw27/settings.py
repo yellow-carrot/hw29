@@ -128,4 +128,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-TOTAL_ON_PAGE = 10
+TOTAL_ON_PAGE = 4
