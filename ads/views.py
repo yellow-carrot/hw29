@@ -28,6 +28,8 @@ class CategoryListView(ListView):
     def get(self, request, *args, **kwargs):
         super().get(request, *args, **kwargs)
 
+        self.object_list = self.object_list.order_by("name")
+
         paginator = Paginator(self.object_list, settings.TOTAL_ON_PAGE)
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
@@ -124,6 +126,8 @@ class AdListView(ListView):
     def get(self, request, *args, **kwargs):
         super().get(request, *args, **kwargs)
 
+        self.object_list = self.object_list.order_by("price")
+
         paginator = Paginator(self.object_list, settings.TOTAL_ON_PAGE)
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
@@ -135,6 +139,7 @@ class AdListView(ListView):
                 "id": ad.id,
                 "name": ad.name,
                 "author": ad.author_id.username,
+                "price": ad.price
             })
 
         response = {

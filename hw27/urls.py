@@ -26,6 +26,7 @@ urlpatterns = [
     path('', StatusView.as_view()),
     path('cat/', include('ads.urls.cat')),
     path('ad/', include('ads.urls.ad')),
+    path('user/', include('users.urls.user')),
 
 ]
 

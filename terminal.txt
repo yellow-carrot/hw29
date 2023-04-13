@@ -1,0 +1,7 @@
+docker run --name hw28-postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
+./manage.py makemigrations
+./manage.py migrate
+./manage.py loaddata data/category.json
+./manage.py loaddata data/location.json
+./manage.py loaddata data/user.json
+./manage.py loaddata data/ad.json
