@@ -8,12 +8,19 @@ from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import ListView, DetailView, DeleteView, CreateView, UpdateView
+from rest_framework.viewsets import ModelViewSet
 
 from hw29 import settings
 from users.models import User, Location
+from users.serializers import LocationSerializer
 
 
 # Create your views here.
+
+class LocationViewSet(ModelViewSet):
+    queryset = Location.objects.all()
+    serializer_class = LocationSerializer
+
 
 class UserListView(ListView):
     model = User
