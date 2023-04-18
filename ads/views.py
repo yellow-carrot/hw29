@@ -10,7 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
 
 from ads.models import Category, Ad
-from hw27 import settings
+from hw29 import settings
 from users.models import User
 
 

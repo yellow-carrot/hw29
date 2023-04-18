@@ -9,7 +9,7 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import ListView, DetailView, DeleteView, CreateView, UpdateView
 
-from hw27 import settings
+from hw29 import settings
 from users.models import User, Location
 
 
