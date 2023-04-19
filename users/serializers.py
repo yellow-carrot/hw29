@@ -69,4 +69,6 @@ class UserUpdateSerializer(ModelSerializer):
 
 
 class UserDestroySerializer(ModelSerializer):
-    pass
+    class Meta:
+        model = User
+        fields = ['id']
