@@ -62,3 +62,11 @@ class UserCreateSerializer(ModelSerializer):
     class Meta:
         model = User
         fields = '__all__'
+
+
+class UserUpdateSerializer(ModelSerializer):
+    pass
+
+
+class UserDestroySerializer(ModelSerializer):
+    pass
