@@ -65,7 +65,30 @@ class UserCreateSerializer(ModelSerializer):
 
 
 class UserUpdateSerializer(ModelSerializer):
-    pass
+    location_id = SlugRelatedField(
+        required=False,
+        many=True,
+        queryset=Location.objects.all(),
+        slug_field='id'
+    )
+
+    def is_valid(self, raise_exception=False):
+        self._location_id = self.initial_data.pop("locations")
+        super().is_valid(raise_exception=raise_exception)
+
+    def save(self):
+        user = super().save()
+
+        for location in self._location_id:
+            obj, _ = Location.objects.get_or_create(name=location)
+            user.location_id.add(obj)
+
+        user.save()
+        return user
+
+    class Meta:
+        model = User
+        fields = '__all__'
 
 
 class UserDestroySerializer(ModelSerializer):
