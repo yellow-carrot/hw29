@@ -31,6 +31,10 @@ class User(models.Model):
     age = models.PositiveSmallIntegerField()
     location_id = models.ManyToManyField(Location)
 
+    @property
+    def locations(self):
+        return self.location_id
+
     def __str__(self):
         return self.username
 
