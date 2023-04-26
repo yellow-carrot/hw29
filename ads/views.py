@@ -12,7 +12,7 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.viewsets import ModelViewSet
 
 from ads.models import Category, Ad, Compilation
-from ads.permissions import IsOwner
+from ads.permissions import IsOwner, IsStuff
 from ads.serializers import AdSerializer, CompilationSerializer, CompilationListSerializer, CompilationCreateSerializer, \
     CompilationRetrieveSerializer
 from hw29 import settings
@@ -133,7 +133,11 @@ class AdViewSet(ModelViewSet):
     default_permission = [AllowAny]
 
     permissions = {
-        "retrieve": [IsAuthenticated]
+        "retrieve": [IsAuthenticated],
+        "create": [IsAuthenticated],
+        "update": [IsAuthenticated, IsStuff | IsOwner],
+        "partial_update": [IsAuthenticated, IsStuff | IsOwner],
+        "destroy": [IsAuthenticated, IsStuff | IsOwner]
     }
 
     def get_permissions(self):
