@@ -11,8 +11,9 @@ from django.views.generic import DetailView, ListView, CreateView, UpdateView, D
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.viewsets import ModelViewSet
 
-from ads.models import Category, Ad
-from ads.serializers import AdSerializer
+from ads.models import Category, Ad, Compilation
+from ads.permissions import IsOwner
+from ads.serializers import AdSerializer, CompilationSerializer, CompilationListSerializer, CompilationCreateSerializer
 from hw29 import settings
 from users.models import User
 
@@ -161,3 +162,29 @@ class AdViewSet(ModelViewSet):
         return super().list(request, *args, **kwargs)
 
 
+# =========================Compilation_Views=======================
+
+class CompilationViewSet(ModelViewSet):
+    queryset = Compilation.objects.order_by('name')
+    default_serializer_class = CompilationSerializer
+
+    default_permission = [AllowAny]
+
+    permissions = {
+        "retrieve": [IsAuthenticated],
+        "create": [IsAuthenticated],
+        "update": [IsAuthenticated, IsOwner],
+        "partial_update": [IsAuthenticated, IsOwner],
+        "destroy": [IsAuthenticated, IsOwner]
+    }
+
+    serializers = {
+        "list": CompilationListSerializer,
+        "create": CompilationCreateSerializer
+    }
+
+    def get_permissions(self):
+        return [permission() for permission in self.permissions.get(self.action, self.default_permission)]
+
+    def get_serializer_class(self):
+        return self.serializers.get(self.action, self.default_serializer_class)
