@@ -17,6 +17,14 @@ class CompilationSerializer(ModelSerializer):
         model = Compilation
 
 
+class CompilationRetrieveSerializer(ModelSerializer):
+    items = AdSerializer(many=True)
+
+    class Meta:
+        fields = '__all__'
+        model = Compilation
+
+
 class CompilationListSerializer(ModelSerializer):
     owner = SlugRelatedField(slug_field='username', queryset=User.objects.all())
 

@@ -13,7 +13,8 @@ from rest_framework.viewsets import ModelViewSet
 
 from ads.models import Category, Ad, Compilation
 from ads.permissions import IsOwner
-from ads.serializers import AdSerializer, CompilationSerializer, CompilationListSerializer, CompilationCreateSerializer
+from ads.serializers import AdSerializer, CompilationSerializer, CompilationListSerializer, CompilationCreateSerializer, \
+    CompilationRetrieveSerializer
 from hw29 import settings
 from users.models import User
 
@@ -180,7 +181,8 @@ class CompilationViewSet(ModelViewSet):
 
     serializers = {
         "list": CompilationListSerializer,
-        "create": CompilationCreateSerializer
+        "create": CompilationCreateSerializer,
+        "retrieve": CompilationRetrieveSerializer
     }
 
     def get_permissions(self):
