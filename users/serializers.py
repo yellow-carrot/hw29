@@ -21,7 +21,7 @@ class UserListSerializer(ModelSerializer):
 
     class Meta:
         model = User
-        exclude = ['location_id']
+        exclude = ['location_id', 'password']
 
 
 class UserRetrieveSerializer(ModelSerializer):
