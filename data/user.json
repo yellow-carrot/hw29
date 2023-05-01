@@ -10,7 +10,9 @@
       "age": "21",
       "location_id": [
         1
-      ]
+      ],
+      "email": "123@example.org",
+      "birth_date": "2012-04-23"
     }
   },
   {
@@ -24,7 +26,9 @@
       "age": "24",
       "location_id": [
         3
-      ]
+      ],
+      "email": "1234@example.org",
+      "birth_date": "2012-04-23"
     }
   },
   {
@@ -38,7 +42,9 @@
       "age": "29",
       "location_id": [
         8
-      ]
+      ],
+      "email": "1235@example.org",
+      "birth_date": "2012-04-23"
     }
   },
   {
@@ -52,7 +58,9 @@
       "age": "19",
       "location_id": [
         10
-      ]
+      ],
+      "email": "1236@example.org",
+      "birth_date": "2012-04-23"
     }
   },
   {
@@ -66,7 +74,9 @@
       "age": "41",
       "location_id": [
         2
-      ]
+      ],
+      "email": "1237@example.org",
+      "birth_date": "2012-04-23"
     }
   },
   {
@@ -80,7 +90,9 @@
       "age": "37",
       "location_id": [
         4
-      ]
+      ],
+      "email": "1238@example.org",
+      "birth_date": "2012-04-23"
     }
   },
   {
@@ -94,7 +106,9 @@
       "age": "26",
       "location_id": [
         7
-      ]
+      ],
+      "email": "1239@example.org",
+      "birth_date": "2012-04-23"
     }
   },
   {
@@ -108,7 +122,9 @@
       "age": "24",
       "location_id": [
         5
-      ]
+      ],
+      "email": "12310@example.org",
+      "birth_date": "2012-04-23"
     }
   },
   {
@@ -122,7 +138,9 @@
       "age": "22",
       "location_id": [
         9
-      ]
+      ],
+      "email": "12311@example.org",
+      "birth_date": "2012-04-23"
     }
   },
   {
@@ -136,7 +154,9 @@
       "age": "35",
       "location_id": [
         6
-      ]
+      ],
+      "email": "12312@example.org",
+      "birth_date": "2012-04-23"
     }
   }
 ]

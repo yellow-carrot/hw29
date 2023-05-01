@@ -33,3 +33,4 @@ csv_to_json('data/ad.csv', 'data/ad.json', 'ads.ad')
 csv_to_json('data/category.csv', 'data/category.json', 'ads.category')
 csv_to_json('data/location.csv', 'data/location.json', 'users.location')
 csv_to_json('data/user.csv', 'data/user.json', 'users.user')
+

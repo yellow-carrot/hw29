@@ -1,6 +1,8 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+from users.validators import check_b_date, check_email
+
 
 # Create your models here.
 
@@ -27,6 +29,8 @@ class User(AbstractUser):
     role = models.CharField(max_length=9, choices=ROLE, default='member')
     age = models.PositiveSmallIntegerField(null=True)
     location_id = models.ManyToManyField(Location)
+    birth_date = models.DateField(validators=[check_b_date])
+    email = models.EmailField(unique=True, null=True, validators=[check_email])
 
     @property
     def locations(self):
