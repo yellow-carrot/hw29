@@ -1,3 +1,4 @@
+from django.core.validators import MinLengthValidator
 from django.db import models
 
 from users.models import User
@@ -8,6 +9,7 @@ from users.models import User
 
 class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
+    slug = models.SlugField(max_length=10, unique=True, validators=[MinLengthValidator(5)])
 
     def __str__(self):
         return self.name
