@@ -29,7 +29,7 @@ class User(AbstractUser):
     role = models.CharField(max_length=9, choices=ROLE, default='member')
     age = models.PositiveSmallIntegerField(null=True)
     location_id = models.ManyToManyField(Location)
-    birth_date = models.DateField(validators=[check_b_date])
+    birth_date = models.DateField(validators=[check_b_date], null=True)
     email = models.EmailField(unique=True, null=True, validators=[check_email])
 
     @property
