@@ -1,4 +1,4 @@
-docker run --name hw31-6-postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
+docker run --name hw31-7-postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
 ./manage.py makemigrations
 ./manage.py migrate
 ./manage.py loaddata data/category.json
