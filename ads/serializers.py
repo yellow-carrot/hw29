@@ -20,6 +20,7 @@ class AdCreateSerializer(ModelSerializer):
 
     class Meta:
         model = Ad
+        fields = '__all__'
 
 
 class CategorySerializer(ModelSerializer):
