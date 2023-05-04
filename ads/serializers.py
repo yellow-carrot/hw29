@@ -14,8 +14,8 @@ class AdSerializer(ModelSerializer):
 
 
 class AdCreateSerializer(ModelSerializer):
-    author = SlugRelatedField(slug_field='username', queryset=User.objects.all())
-    category = SlugRelatedField(slug_field='name', queryset=Category.objects.all())
+    author_id = SlugRelatedField(slug_field='id', queryset=User.objects.all())
+    category_id = SlugRelatedField(slug_field='id', queryset=Category.objects.all())
     is_published = BooleanField(validators=[check_is_published], required=False)
 
     class Meta:
